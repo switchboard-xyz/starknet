@@ -165,6 +165,65 @@ mod example_contract {
 }
 ```
 
+## Executing updates in TypeScript
+
+To get the update data for a feed, use the following code:
+
+```typescript
+import {
+  ProviderInterface,
+  AccountInterface,
+  Contract,
+  RpcProvider,
+  Account,
+  constants,
+  CallData,
+} from "starknet";
+import { ABI } from "./abi"; // <-- Import the ABI for the contract
+import { readFileSync } from "fs";
+import { SwitchboardClient, Aggregator } from "@switchboard-xyz/starknet-sdk";
+
+function trimHexPrefix(hex: string) {
+  return hex.startsWith("0x") ? hex.slice(2) : hex;
+}
+
+async function main() {
+  // .. initialize wallet / starknet account ..
+
+  const exampleAddress = process.env.EXAMPLE_ADDRESS;
+  if (!exampleAddress) {
+    throw new Error("EXAMPLE_ADDRESS not set");
+  }
+
+  const feedId = process.env.FEED_ID;
+  if (!feedId) {
+    throw new Error("FEED_ID not set");
+  }
+
+  // get the contract
+  const contract = await getBtcFeedContract(exampleAddress, account);
+
+  // get the aggregator
+  const aggregator = new Aggregator(
+    new SwitchboardClient(account),
+    trimHexPrefix(feedId)
+  );
+
+  // Fetch the update ByteArray and oracle responses
+  const { updates, responses } = await aggregator.fetchUpdate();
+
+  // Run the update
+  const tx = await contract.update(CallData.compile(updates));
+  console.log("Transaction hash:", tx.transaction_hash);
+  await account.waitForTransaction(tx.transaction_hash);
+}
+
+main().catch((e) => {
+  console.error(e);
+  process.exit(1);
+});
+```
+
 This implementation allows you to read and utilize Switchboard data feeds within Cairo. If you have any questions or need further assistance, please contact the Switchboard team.
 
 **DISCLAIMER: ORACLE CODE AND CORE LOGIC ARE AUDITED - THE AUDIT FOR THIS ON-CHAIN ADAPTER IS PENDING**
