@@ -94,7 +94,7 @@ create_feed();
 
 ## Adding Switchboard to Cairo Code
 
-To integrate Switchboard with Cairo, add the following dependencies to Cairo.toml:
+To integrate Switchboard with your cairo code, first add the following dependencies to Scarb.toml:
 
 ```toml
 switchboard = { git = "https://github.com/switchboard-xyz/starknet.git" }
