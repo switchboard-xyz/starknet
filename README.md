@@ -3,7 +3,7 @@
     <img src="https://github.com/switchboard-xyz/sbv2-core/raw/main/website/static/img/icons/switchboard/avatar.png" />
   </a>
 
-  <h1>Starknet On-Demand Integration</h1>
+  <h1>Switchboard On-Demand on Starknet</h1>
 
   <p>Switchboard is a multi-chain, permissionless oracle protocol allowing developers to fully control how data is relayed on-chain to their smart contracts.</p>
 
