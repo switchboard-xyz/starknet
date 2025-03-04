@@ -3,7 +3,7 @@
     <img src="https://github.com/switchboard-xyz/sbv2-core/raw/main/website/static/img/icons/switchboard/avatar.png" />
   </a>
 
-  <h1>Switchboard</h1>
+  <h1>Starknet On-Demand Integration</h1>
 
   <p>Switchboard is a multi-chain, permissionless oracle protocol allowing developers to fully control how data is relayed on-chain to their smart contracts.</p>
 
@@ -20,10 +20,6 @@
     <strong>Documentation: </strong><a href="https://docs.switchboard.xyz">docs.switchboard.xyz</a>
   </h4>
 </div>
-
-# Switchboard On-Demand on Starknet
-
-**DISCLAIMER: ORACLE CODE AND CORE LOGIC ARE AUDITED - THE AUDIT FOR THIS ON-CHAIN ADAPTER IS PENDING**
 
 ## Active Deployments
 
@@ -87,3 +83,5 @@ In the module, use the latest result function to read the latest data for a feed
 ```
 
 This implementation allows you to read and utilize Switchboard data feeds within Cairo. If you have any questions or need further assistance, please contact the Switchboard team.
+
+**DISCLAIMER: ORACLE CODE AND CORE LOGIC ARE AUDITED - THE AUDIT FOR THIS ON-CHAIN ADAPTER IS PENDING**
